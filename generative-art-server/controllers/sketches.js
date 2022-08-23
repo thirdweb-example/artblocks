@@ -37,14 +37,12 @@ const getScript = async (tokenId) => {
         if (err) {
           reject(err);
         } else {
-          console.log("1");
           resolve();
         }
       }
     );
   });
 
-  console.log("2");
   return hash;
 };
 
