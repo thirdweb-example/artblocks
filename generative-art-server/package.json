@@ -1,0 +1,42 @@
+{
+  "name": "art-blocks-starter-template",
+  "version": "0.2.1",
+  "description": "A template to simulate the Art Blocks (artblocks.io) environment.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asupkay/Artblocks-Starter-Template.git"
+  },
+  "author": "Alex Supkay, Stephen McArdle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Asupkay/Artblocks-Starter-Template/issues"
+  },
+  "homepage": "https://github.com/Asupkay/Artblocks-Starter-Template#readme",
+  "dependencies": {
+    "@thirdweb-dev/sdk": "^2.3.38",
+    "body-parser": "^1.20.0",
+    "canvas": "^2.9.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "ethers": "^5.7.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^6.0.3",
+    "fs": "^0.0.1-security",
+    "markdown-it": "^12.0.4",
+    "node-p5": "^1.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^7.3.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.0.5"
+  }
+}
