@@ -9,7 +9,7 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
   const contract = await sdk.getContract(
     // Update to use your smart contract address
-    "<your-smart-contract-address-here>"
+    "<your-contract-address-here>"
   );
 
   const tx = await contract.call(
