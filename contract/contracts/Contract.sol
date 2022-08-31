@@ -6,6 +6,11 @@ import "@thirdweb-dev/contracts/base/ERC721Drop.sol";
 contract MyGenerativeArt is ERC721Drop {
     // Store the script that generates the art from a hash
 	  string public script;
+
+    function setScript(string calldata _script) onlyOwner public {
+        script = _script;
+    }
+
     // mapping from tokenId to associated hash value
     mapping(uint256 => bytes32) public tokenToHash;
 
