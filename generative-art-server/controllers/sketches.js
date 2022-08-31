@@ -7,9 +7,7 @@ const sdk = new ThirdwebSDK("goerli");
 
 const getScript = async (tokenId) => {
   // Your contract address from the dashboard
-  const contract = await sdk.getContract(
-    "0x0064B1Cd6f1AC6f8c50D1187D20d9fb489CdDfB6"
-  );
+  const contract = await sdk.getContract("<your-contract-address-here>");
   // Get the script from the contract
   const scriptStr = await contract.call("script");
   const hash = await contract.call("tokenToHash", parseInt(tokenId));
@@ -28,6 +26,8 @@ const getScript = async (tokenId) => {
     "./public/token/js/pieces/mySketch.js"
   );
 
+  console.log("wrote file");
+
   await new Promise((resolve, reject) => {
     fs.writeFile(
       filePath,
@@ -37,6 +37,8 @@ const getScript = async (tokenId) => {
         if (err) {
           reject(err);
         } else {
+          console.log("wrote file for real");
+
           resolve();
         }
       }
