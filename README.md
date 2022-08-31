@@ -20,8 +20,12 @@ pragma solidity ^0.8.0;
 import "@thirdweb-dev/contracts/base/ERC721Drop.sol";
 
 contract MyGenerativeArt is ERC721Drop {
-	string public script;             // declare storage variable
-
+    string public script;             // declare storage variable
+    
+    function setScript(string calldata _script) onlyOwner public {
+        script = _script;
+    }
+    
     constructor(
         string memory _name,
         string memory _symbol,
