@@ -98,19 +98,6 @@ function transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
     _mintGenerative(_to, startTokenId, _quantityBeingClaimed);
     _safeMint(_to, _quantityBeingClaimed);
 }
-
-function mintWithSignature(MintRequest calldata _req, bytes calldata _signature)
-    public
-    payable
-    virtual
-    override
-    returns (address signer)
-{
-    address receiver = _req.to == address(0) ? msg.sender : _req.to;
-	// Call our mintGenerative function here!
-    _mintGenerative(receiver, _currentIndex, _req.quantity);
-    signer = super.mintWithSignature(_req, _signature);
-}
 ```
 
 ## Server Logic
