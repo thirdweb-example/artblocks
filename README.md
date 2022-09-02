@@ -79,12 +79,7 @@ function _mintGenerative(address _to, uint256 _startTokenId, uint256 _qty) inter
 }
 ```
 
-In the Drop base contract, tokens can be minted inside two functions:
-
-1. `transferTokensOnClaim`
-2. `mintWithSignature`
-
-For both of these, we need to override the logic to include our art generation:
+In the Drop base contract, tokens are minted inside transferTokensOnClaim function. We need to override its logic to include our art generation:
 
 ```solidity
 function transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
