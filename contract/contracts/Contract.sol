@@ -41,20 +41,6 @@ contract MyGenerativeArt is ERC721Drop {
         _safeMint(_to, _quantityBeingClaimed);
     }
 
-    function mintWithSignature(MintRequest calldata _req, bytes calldata _signature)
-      public
-      payable
-      virtual
-      override
-      returns (address signer)
-    {
-        address receiver = _req.to == address(0) ? msg.sender : _req.to;
-	      // Call our mintGenerative function here!
-        _mintGenerative(receiver, _currentIndex, _req.quantity);
-        signer = super.mintWithSignature(_req, _signature);
-    }
-
-
     constructor(
         string memory _name,
         string memory _symbol,
