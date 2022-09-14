@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/Asupkay/Artblocks-Starter-Template#readme",
   "dependencies": {
-    "@thirdweb-dev/sdk": "^2.3.38",
+    "@thirdweb-dev/sdk": "^3",
     "body-parser": "^1.20.0",
     "canvas": "^2.9.3",
     "cors": "^2.8.5",
