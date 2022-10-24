@@ -6,7 +6,7 @@ import path from "path";
 
 import { getScript } from "./controllers/sketches.js";
 import { saveImage } from "./controllers/images.js";
-import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { ThirdwebStorage } from "@thirdweb-dev/storage";
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -24,6 +24,7 @@ app.use(bodyParser.json({ limit: "50mb" }));
 app.use(cors());
 app.use(express.static("public"));
 
+const storage = new ThirdwebStorage();
 const tokenImages = {};
 
 app.get("/token/:tokenId", async (req, res) => {
@@ -32,12 +33,11 @@ app.get("/token/:tokenId", async (req, res) => {
   if (!tokenImages[`img_${req.params.tokenId}`]) {
     const buf = saveImage(hash, req.params.tokenId);
 
-    // Configure this to the network you deployed your contract to;
-    const sdk = new ThirdwebSDK("goerli");
+    const result = await storage.upload(buf);
 
-    const result = await sdk.storage.upload(buf);
-
-    tokenImages[`img_${req.params.tokenId}`] = `${result.uris[0]}`;
+    tokenImages[`img_${req.params.tokenId}`] = await storage.resolveScheme(
+      result
+    );
   }
 
   res.render("piece", {
