@@ -29,7 +29,7 @@ contract MyGenerativeArt is ERC721Drop {
       }
     }
 
-    function transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
+    function _transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
       internal
       virtual
       override
